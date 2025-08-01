@@ -1,103 +1,451 @@
-import Image from "next/image";
+'use client';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import {
+  FiArrowRight,
+  FiCpu,
+  FiCloud,
+  FiShield,
+  FiCode,
+  FiUsers,
+  FiLock,
+  FiGlobe,
+} from 'react-icons/fi';
+import Image from 'next/image';
 
-export default function Home() {
+// Card Component
+interface CardProps {
+  title: string;
+  svgIcon: React.ReactNode;
+  description: string;
+  hoverImage: string;
+}
+
+const Card: React.FC<CardProps> = ({ title, svgIcon, description, hoverImage }) => {
+  const [animationState, setAnimationState] = useState<'idle' | 'animating' | 'complete'>('idle');
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <motion.div
+      className="bg-white rounded-3xl shadow-lg overflow-hidden w-72 h-[420px] cursor-pointer dark:bg-gray-800 dark:text-white hover:shadow-xl transition-shadow flex flex-col"
+      onHoverStart={() => setAnimationState('animating')}
+      onHoverEnd={() => setAnimationState('idle')}
+    >
+      {/* Top Rounded Section */}
+      <div className="bg-gray-50 dark:bg-gray-700 rounded-t-3xl w-full flex flex-col items-center pt-6 pb-4">
+        <div className="w-16 h-16 text-orange-500">{svgIcon}</div>
+        <h3 className="text-xl font-semibold mt-2">{title}</h3>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Description & Arrow/Image Reveal */}
+      <div className="p-6 text-center flex-1 flex flex-col">
+        <p className="text-gray-600 dark:text-gray-300 mb-6 flex-1">{description}</p>
+
+        {/* Rounded Box Container */}
+        <div className="relative w-full h-14 rounded-3xl border border-gray-300 dark:border-gray-600 overflow-hidden mt-auto">
+          {/* Moving Arrow */}
+          {animationState !== 'complete' && (
+            <motion.div
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300"
+              animate={{
+                x: animationState === 'animating' ? 'calc(100% - 60px)' : 0,
+              }}
+              transition={{
+                duration: 0.7,
+                ease: 'easeInOut',
+                onComplete: () => animationState === 'animating' && setAnimationState('complete'),
+              }}
+            >
+              <FiArrowRight />
+            </motion.div>
+          )}
+
+          {/* Image Reveal */}
+          {animationState === 'complete' && (
+            <motion.div
+              className="absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              <Image
+                src={hoverImage}
+                alt={title}
+                fill
+                className="object-cover rounded-lg"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </motion.div>
+          )}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </div>
+    </motion.div>
+  );
+};
+
+// CTA Button Component
+interface CTAButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  secondary?: boolean;
+  children: React.ReactNode;
+}
+
+const CTAButton: React.FC<CTAButtonProps> = ({ secondary, children, ...props }) => (
+  <button
+    className={`relative px-6 py-3 rounded-lg font-semibold text-base transition-all shadow-lg group ${
+      secondary
+        ? 'bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-white'
+        : 'bg-gradient-to-r from-orange-500 to-orange-700 text-white hover:from-orange-600 hover:to-orange-800'
+    }`}
+    {...props}
+  >
+    <span className="relative z-10">{children}</span>
+    <span className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-15 transition bg-white/10" />
+  </button>
+);
+
+// Hero Section
+const Hero = () => (
+  <div className="bg-gradient-to-b from-orange-100 to-white dark:from-[#0A162F] dark:to-[#141B21] flex flex-col items-center justify-start text-center px-4 pb-40 pt-[270px]">
+    <motion.div
+      className="flex items-center justify-between bg-gradient-to-r from-orange-200 to-orange-100 dark:from-orange-700/30 dark:to-orange-600/30 rounded-full px-6 py-2 shadow-md mb-10 max-w-fit text-base md:text-lg"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <span className="bg-white dark:bg-gray-800 text-teal-800 dark:text-teal-300 text-sm md:text-base font-bold rounded-full px-3 py-1 mr-3">
+        New
+      </span>
+      <p className="text-gray-800 dark:text-gray-200 text-base md:text-lg">
+        Introducing <strong>InteliCore</strong>: the first AI Agent.
+      </p>
+      <button className="ml-3 text-gray-900 dark:text-white font-bold text-xl md:text-2xl">›</button>
+    </motion.div>
+
+    <motion.h1
+      className="text-5xl md:text-6xl font-bold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-orange-500"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4, duration: 0.6 }}
+    >
+      Welcome to InteliCore Systems
+    </motion.h1>
+
+    <motion.h2
+      className="text-2xl md:text-3xl text-orange-600 dark:text-orange-400 font-semibold mb-6 leading-snug"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, duration: 0.6 }}
+    >
+      Innovate with AI, Cybersecurity, and Cloud Solutions
+    </motion.h2>
+
+    <motion.p
+      className="max-w-3xl text-gray-700 dark:text-gray-300 text-lg md:text-xl mb-8 leading-relaxed"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6, duration: 0.6 }}
+    >
+      At InteliCore Systems Private Limited, we're redefining the future with
+      cutting-edge software solutions.
+    </motion.p>
+
+    <motion.div
+      className="flex gap-6 flex-col sm:flex-row"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.7, duration: 0.6 }}
+    >
+      <CTAButton>Explore Our Services</CTAButton>
+      <CTAButton secondary>Contact Us</CTAButton>
+    </motion.div>
+  </div>
+);
+
+// Services Section
+const Services = () => {
+  const services = [
+    {
+      title: 'AI Assistants',
+      description:
+        'Create intelligent, user-focused applications. Our AI solutions transform data into actionable insights and automate complex workflows.',
+      icon: <FiCpu className="w-full h-full" />,
+      image: '/images/ai-ml.jpg',
+    },
+    {
+      title: 'CX Cloud',
+      description:
+        'Scale seamlessly with cloud-based solutions. Our expertise in cloud technologies ensures your applications perform reliably at any scale.',
+      icon: <FiCloud className="w-full h-full" />,
+      image: '/images/cloud.jpg',
+    },
+    {
+      title: 'Cybersecurity',
+      description:
+        'Safeguard your digital assets with advanced protection. We implement robust security measures to protect your data and systems.',
+      icon: <FiShield className="w-full h-full" />,
+      image: '/images/security.jpg',
+    },
+    {
+      title: 'Web Development',
+      description:
+        'Modern, responsive web applications that deliver exceptional user experiences across all devices.',
+      icon: <FiCode className="w-full h-full" />,
+      image: '/images/web-dev.jpg',
+    },
+  ];
+
+  return (
+    <section className="w-full bg-gradient-to-b from-white to-gray-50 dark:from-[#111927] dark:to-[#050a15] px-4 py-16 flex items-center justify-center">
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="text-center mb-12">
+          <motion.h2
+            className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Our Core Services
+          </motion.h2>
+          <div className="w-16 h-1 mx-auto bg-gradient-to-r from-blue-500 to-orange-500 rounded-lg mb-4" />
+          <motion.p
+            className="text-lg text-gray-600 dark:text-gray-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            We specialize in key areas to deliver exceptional software solutions.
+          </motion.p>
+        </div>
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-30 justify-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          {services.map((service, index) => (
+            <Card
+              key={index}
+              title={service.title}
+              svgIcon={service.icon}
+              description={service.description}
+              hoverImage={service.image}
+            />
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <CTAButton>Learn More About Our Services</CTAButton>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// Why Choose Us Section (right image static)
+const WhyChooseUs = () => {
+  const features = [
+    {
+      title: 'Innovative AI Technology',
+      description:
+        'Our AI solutions are designed to simplify and enhance your career preparation. Our platform provides intuitive, AI-driven tools to support you every step of the way.',
+      icon: <FiCpu className="h-6 w-6" />,
+      color: 'text-blue-600',
+    },
+    {
+      title: 'Built for All Professionals',
+      description:
+        'From freshers entering the workforce to experienced professionals seeking new opportunities, our platform is tailored to meet diverse needs.',
+      icon: <FiUsers className="h-6 w-6" />,
+      color: 'text-purple-600',
+    },
+    {
+      title: 'Join a Thriving Community',
+      description:
+        'Be part of a growing community of professionals who trust our platform to advance their careers.',
+      icon: <FiGlobe className="h-6 w-6" />,
+      color: 'text-green-600',
+    },
+    {
+      title: 'Unwavering Commitment to Security',
+      description:
+        'Your privacy is our priority. We adhere to strict security standards, using secure authentication protocols and privacy-first practices to protect your data.',
+      icon: <FiLock className="h-6 w-6" />,
+      color: 'text-red-600',
+    },
+  ];
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h1 className="text-3xl font-bold text-center mb-6 relative pb-2">
+        Why Choose InteliCore Systems?
+        <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-orange-400 rounded-full"></span>
+      </h1>
+      <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
+        we are dedicated to revolutionizing career development through innovative AI solutions.
+      </p>
+
+      <div className="flex flex-col lg:flex-row gap-12 items-center">
+        {/* Left side cards */}
+        <div className="lg:w-1/2 space-y-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 dark:bg-gray-800 dark:text-white"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-start">
+                <div
+                  className={`p-2 rounded-lg ${feature.color.replace('text', 'bg')} bg-opacity-20 mr-4`}
+                >
+                  <span className={feature.color}>{feature.icon}</span>
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold mb-2 dark:text-white">{feature.title}</h2>
+                  <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Right side static image */}
+        <div className="lg:w-1/2 relative">
+          <div className="relative overflow-hidden shadow-md border-t-4 border-r-4 border-orange-400 rounded-tl-4xl rounded-br-4xl">
+            <Image
+              src="/images/whychoose.jpg"
+              alt="why choose?"
+              width={500}
+              height={600}
+              className="object-cover w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+// Coming Soon Section
+const ComingSoon = () => {
+  return (
+    <section className="w-full bg-gradient-to-r from-yellow-50 to-orange-50 py-20 px-4 flex items-center justify-center">
+      <div className="max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
+        <p className="text-xl text-gray-500 mb-4">— Coming Soon</p>
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">Get Notified</h1>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">When We Launch</h2>
+
+        <div className="max-w-md w-full">
+          <div className="flex rounded-full border border-gray-300 overflow-hidden shadow-sm w-full">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="flex-grow px-6 py-3 focus:outline-none text-gray-700"
+            />
+            <button className="bg-black text-white px-6 py-3 hover:bg-gray-800 transition whitespace-nowrap">
+              Notify Me
+            </button>
+          </div>
+          <p className="text-xs text-gray-500 mt-2">*Don't worry we will not spam you :)</p>
+        </div>
+
+        {/* Social Icons */}
+        <div className="flex space-x-6 mt-12">
+          {['twitter', 'instagram', 'facebook'].map((social) => (
+            <a key={social} href="#" className="text-gray-400 hover:text-gray-600">
+              <span className="sr-only">{social}</span>
+              <div className="w-5 h-5 bg-current rounded-full"></div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Footer
+const Footer = () => (
+  <footer className="bg-gradient-to-t bg-gray-800 text-white py-14 px-4">
+    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h2 className="text-xl font-semibold mb-4 text-orange-400">IntelliCoreAI</h2>
+        <p className="text-sm text-gray-400 mb-4">
+          Redefining the future with cutting-edge software solutions in AI, cybersecurity, and cloud
+          computing.
+        </p>
+        <div className="flex space-x-4">
+          {['facebook', 'twitter', 'linkedin', 'instagram'].map((social, i) => (
+            <a
+              key={i}
+              href="#"
+              className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
+            >
+              <div className="w-5 h-5 bg-gray-400 rounded-full"></div>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
+        <ul className="space-y-2">
+          {['Home', 'About Us', 'Services', 'Contact Us', 'Join Waitlist'].map((link, i) => (
+            <li key={i}>
+              <a href="#" className="text-sm text-gray-400 hover:text-orange-400">
+                {link}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 className="text-xl font-semibold mb-4">Services</h2>
+        <ul className="space-y-2">
+          {['AI Assistants', 'CX Cloud', 'Cybersecurity', 'Web Development'].map((service, i) => (
+            <li key={i}>
+              <a href="#" className="text-sm text-gray-400 hover:text-orange-400">
+                {service}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 className="text-xl font-semibold mb-4">Contact</h2>
+        <ul className="space-y-2 text-gray-400 text-sm">
+          <li>Email: support@intellicoreai.com</li>
+          <li>Phone: +1 234 567 890</li>
+          <li>Address: 123 AI Street, Silicon Valley, USA</li>
+        </ul>
+      </div>
+    </div>
+    <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
+      © 2025 IntelliCoreAI. All rights reserved.
+    </div>
+  </footer>
+);
+
+// Home Page Component
+const HomePage: React.FC = () => {
+  return (
+    <div className="bg-white dark:bg-[#050a15]">
+      <Hero />
+      <Services />
+       <ComingSoon />
+      <WhyChooseUs />
+      <Footer />
+    </div>
+  );
+};
+
+export default HomePage;
