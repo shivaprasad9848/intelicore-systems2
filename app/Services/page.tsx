@@ -6,7 +6,6 @@ import {
   FaReact,
   FaPython,
   FaGitAlt,
-  FaCss3Alt,
   FaMicrosoft,
   FaPhone,
   FaEnvelope,
@@ -19,10 +18,11 @@ import {
   SiTailwindcss,
   SiUnrealengine,
 } from "react-icons/si";
+import Image from "next/image";
 
 // Interfaces
 interface Service {
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: (props: React.SVGProps<SVGSVGElement>) => React.JSX.Element;
   title: string;
   image: string;
   content: string;
@@ -45,11 +45,6 @@ interface Technology {
 // Animation Variants
 const fadeInLeft: Variants = {
   hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-};
-
-const fadeInRight: Variants = {
-  hidden: { opacity: 0, x: 50 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
 };
 
@@ -270,19 +265,17 @@ const ServicesPage: React.FC = () => {
           </motion.div>
 
           <motion.div 
-            variants={fadeInRight} 
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }}
             animate="floating"
-            variants={{
-              ...fadeInRight,
-              floating: floating.floating
-            }}
+            variants={floating}
           >
-            <img
+            <Image
               src={imagePaths.hero}
               alt="Technology Solutions"
+              width={600}
+              height={400}
               className="rounded-2xl shadow-xl object-contain w-full h-auto transform transition-all duration-300 hover:scale-105"
             />
           </motion.div>
@@ -334,12 +327,12 @@ const ServicesPage: React.FC = () => {
             whileHover={{ y: -10 }}
           >
             <div className="md:w-1/2 w-full overflow-hidden rounded-2xl">
-              <motion.img 
+              <Image 
                 src={service.image} 
-                alt={service.title} 
+                alt={service.title}
+                width={600}
+                height={400}
                 className="rounded-2xl shadow-md object-cover w-full h-auto transform transition-all duration-500 hover:scale-110"
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.3 }}
               />
             </div>
             <div className="md:w-1/2 w-full">
@@ -422,9 +415,11 @@ const ServicesPage: React.FC = () => {
                 className="bg-white rounded-2xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl"
               >
                 <div className="relative h-64 overflow-hidden">
-                  <img
+                  <Image
                     src={program.image}
                     alt={program.title}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -533,7 +528,7 @@ const ServicesPage: React.FC = () => {
             className="text-xl text-gray-700 mb-10 max-w-2xl mx-auto"
             variants={fadeInUp}
           >
-            Let's discuss how our solutions can help you achieve your goals
+            Let&apos;s discuss how our solutions can help you achieve your goals
           </motion.p>
           
           <motion.div 

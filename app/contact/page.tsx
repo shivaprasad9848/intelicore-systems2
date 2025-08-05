@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-// Animation variants
+// Animation variants with proper typing
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -13,7 +13,7 @@ const containerVariants = {
       delayChildren: 0.3
     }
   }
-};
+} as const;
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -21,17 +21,17 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100,
       damping: 10
     }
   }
-};
+} as const;
 
 const fadeInVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.6 } }
-};
+} as const;
 
 const ContactPage: React.FC = () => {
   const [activeMap, setActiveMap] = useState<string | null>(null);
@@ -121,7 +121,7 @@ const ContactPage: React.FC = () => {
                 variants={itemVariants}
                 className='text-orange-500 text-2xl'
               >
-                Let's Build Your Next Solution Together
+                Let&apos;s Build Your Next Solution Together
               </motion.h2>
               <motion.p 
                 variants={itemVariants}
@@ -260,7 +260,7 @@ const ContactPage: React.FC = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                Your message has been sent successfully! We'll contact you soon.
+                Your message has been sent successfully! We&apos;ll contact you soon.
               </motion.div>
             )}
             

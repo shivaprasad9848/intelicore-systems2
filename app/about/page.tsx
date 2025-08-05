@@ -50,7 +50,7 @@ const HeroSection = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Building Tomorrow's <br />
+            Building Tomorrow&apos;s <br />
             <span className="text-orange-600">Technology Today</span>
           </motion.h1>
           
@@ -142,7 +142,7 @@ const OurStorySection = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               We believe in the power of technology to transform businesses and enhance lives.
-              With our cutting-edge solutions, we're helping organizations navigate the digital
+              With our cutting-edge solutions, we&apos;re helping organizations navigate the digital
               landscape with confidence and security.
             </motion.p>
             <motion.button 
@@ -185,7 +185,7 @@ const MissionValuesSection = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            At InteliCore Systems, we're on a mission to deliver secure, scalable, and intelligent
+            At InteliCore Systems, we&apos;re on a mission to deliver secure, scalable, and intelligent
             technology for businesses and individuals. Our work is guided by core values that
             define who we are.
           </motion.p>
@@ -556,7 +556,7 @@ const Footer = () => {
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.5 }}
                 >
-                  Kobe's District Hospitalities 53000
+                  Kobe&apos;s District Hospitalities 53000
                 </motion.p>
               </div>
             </div>

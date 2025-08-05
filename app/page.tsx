@@ -145,7 +145,7 @@ const Hero = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.6, duration: 0.6 }}
     >
-      At InteliCore Systems Private Limited, we're redefining the future with
+      At InteliCore Systems Private Limited, we&apos;re redefining the future with
       cutting-edge software solutions.
     </motion.p>
 
@@ -358,7 +358,7 @@ const ComingSoon = () => {
               Notify Me
             </button>
           </div>
-          <p className="text-xs text-gray-500 mt-2">*Don't worry we will not spam you :)</p>
+          <p className="text-xs text-gray-500 mt-2">*Don&apos;t worry we will not spam you :)</p>
         </div>
 
         {/* Social Icons */}

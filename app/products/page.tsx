@@ -42,7 +42,7 @@ const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-gray-600"
           >
-            At InteliCore Systems Private Limited, we're developing cutting-edge AI solutions to simplify career growth and business processes.
+            At InteliCore Systems Private Limited, we&apos;re developing cutting-edge AI solutions to simplify career growth and business processes.
           </motion.p>
           
           <motion.div
