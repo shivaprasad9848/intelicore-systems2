@@ -11,6 +11,7 @@ import {
   FiLock,
   FiGlobe,
 } from 'react-icons/fi';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import Image from 'next/image';
 
 // Card Component
@@ -376,61 +377,94 @@ const ComingSoon = () => {
 
 // Footer
 const Footer = () => (
-  <footer className="bg-gradient-to-t bg-gray-800 text-white py-14 px-4">
-    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div>
-        <h2 className="text-xl font-semibold mb-4 text-orange-400">IntelliCoreAI</h2>
-        <p className="text-sm text-gray-400 mb-4">
-          Redefining the future with cutting-edge software solutions in AI, cybersecurity, and cloud
-          computing.
-        </p>
-        <div className="flex space-x-4">
-          {['facebook', 'twitter', 'linkedin', 'instagram'].map((social, i) => (
-            <a
-              key={i}
-              href="#"
-              className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
-            >
-              <div className="w-5 h-5 bg-gray-400 rounded-full"></div>
-            </a>
-          ))}
+  <footer className="bg-gray-950 text-white pt-10 pb-6 relative">
+    <div className="max-w-7xl mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Company Info */}
+        <div>
+          <h2 className="text-xl font-bold mb-3">IntelliCoreAI</h2>
+          <p className="text-gray-400 text-sm mb-4">
+            Intellacing the future with cutting-edge software applications. As cybersecurity and cloud computing.
+          </p>
+        </div>
+
+        {/* Quick Links */}
+        <div>
+          <h3 className="text-base font-semibold mb-3 border-b border-orange-500 pb-1 inline-block">Quick Links</h3>
+          <ul className="space-y-1.5">
+            {["Home", "About US", "Streaming", "Contact US", "Joint Ventiler"].map((item) => (
+              <li key={item}>
+                <a href="#" className="text-gray-400 hover:text-orange-500 transition-all duration-300 text-sm flex items-center">
+                  <span className="w-1 h-1 bg-orange-500 rounded-full mr-2"></span>
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Our Services */}
+        <div>
+          <h3 className="text-base font-semibold mb-3 border-b border-orange-500 pb-1 inline-block">Our Services</h3>
+          <ul className="space-y-1.5">
+            {["AI & Automation", "Cybersecurity Solutions", "Cloud Computing", "App Development", "Web Platforms"].map((service) => (
+              <li key={service}>
+                <a href="#" className="text-gray-400 hover:text-orange-500 transition-all duration-300 text-sm flex items-center">
+                  <span className="w-1 h-1 bg-orange-500 rounded-full mr-2"></span>
+                  {service}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact Us */}
+        <div>
+          <h3 className="text-base font-semibold mb-3 border-b border-orange-500 pb-1 inline-block">Contact Us</h3>
+          <ul className="space-y-2">
+            <li className="flex items-start">
+              <FaEnvelope className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <a href="mailto:info@intellicoreai.com" className="text-gray-400 hover:text-orange-500 transition-all duration-300 text-sm">
+                info@intellicoreai.com
+              </a>
+            </li>
+            <li className="flex items-start">
+              <FaPhone className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <span className="text-gray-400 text-sm">+91 8050383631 </span>
+            </li>
+            <li className="flex items-start">
+              <FaMapMarkerAlt className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <div>
+                <p className="text-gray-400 font-medium text-xs">USA:</p>
+                <p className="text-gray-400 text-xs">5001 Executive Drive, Suite 500,</p>
+                <p className="text-gray-400 text-xs">Office 515, Hong, TX 75028</p>
+              </div>
+            </li>
+            <li className="flex items-start">
+              <FaMapMarkerAlt className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <div>
+                <p className="text-gray-400 font-medium text-xs">India:</p>
+                <p className="text-gray-400 text-xs">O City, Block B, 3rd Floor,</p>
+                <p className="text-gray-400 text-xs">Krishna District, Nagayalanka 521120</p>
+              </div>
+            </li>
+            <li className="flex items-start">
+              <FaClock className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <div>
+                <p className="text-gray-400 text-xs">Business Hours: March 25, 13 AM +7 PM</p>
+                <p className="text-gray-400 text-xs">BT (Currently: 15 E12 AM BT, Open)</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-      <div>
-        <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
-        <ul className="space-y-2">
-          {['Home', 'About Us', 'Services', 'Contact Us', 'Join Waitlist'].map((link, i) => (
-            <li key={i}>
-              <a href="#" className="text-sm text-gray-400 hover:text-orange-400">
-                {link}
-              </a>
-            </li>
-          ))}
-        </ul>
+
+      {/* Copyright */}
+      <div className="mt-10 pt-6 border-t border-gray-800 text-center">
+        <p className="text-gray-500 text-xs">
+          <span className="text-orange-500">X</span> IntelliCore Systems. All rights reserved.
+        </p>
       </div>
-      <div>
-        <h2 className="text-xl font-semibold mb-4">Services</h2>
-        <ul className="space-y-2">
-          {['AI Assistants', 'CX Cloud', 'Cybersecurity', 'Web Development'].map((service, i) => (
-            <li key={i}>
-              <a href="#" className="text-sm text-gray-400 hover:text-orange-400">
-                {service}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h2 className="text-xl font-semibold mb-4">Contact</h2>
-        <ul className="space-y-2 text-gray-400 text-sm">
-          <li>Email: support@intellicoreai.com</li>
-          <li>Phone: +1 234 567 890</li>
-          <li>Address: 123 AI Street, Silicon Valley, USA</li>
-        </ul>
-      </div>
-    </div>
-    <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
-      © 2025 IntelliCoreAI. All rights reserved.
     </div>
   </footer>
 );
@@ -441,7 +475,7 @@ const HomePage: React.FC = () => {
     <div className="bg-white dark:bg-[#050a15]">
       <Hero />
       <Services />
-       <ComingSoon />
+      <ComingSoon />
       <WhyChooseUs />
       <Footer />
     </div>

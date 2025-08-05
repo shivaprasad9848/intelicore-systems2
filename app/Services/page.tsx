@@ -552,10 +552,7 @@ const ServicesPage: React.FC = () => {
       </motion.section>
 
       {/* Compact Footer - IntelliCoreAI */}
-      <footer className="bg-gray-900 text-white pt-10 pb-6 relative">
-        {/* Decorative top border */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-red-500"></div>
-        
+      <footer className="bg-gray-950 text-white pt-10 pb-6 relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
@@ -608,7 +605,7 @@ const ServicesPage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <FaPhone className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
-                  <span className="text-gray-400 text-sm">-479 68888-00458</span>
+                  <span className="text-gray-400 text-sm">+91 8050383631 </span>
                 </li>
                 <li className="flex items-start">
                   <FaMapMarkerAlt className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
@@ -623,15 +620,7 @@ const ServicesPage: React.FC = () => {
                   <div>
                     <p className="text-gray-400 font-medium text-xs">India:</p>
                     <p className="text-gray-400 text-xs">O City, Block B, 3rd Floor,</p>
-                    <p className="text-gray-400 text-xs">Financial District, Hyderabad 500032</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <FaMapMarkerAlt className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
-                  <div>
-                    <p className="text-gray-400 font-medium text-xs">Australia:</p>
-                    <p className="text-gray-400 text-xs">12, Convex Ave,</p>
-                    <p className="text-gray-400 text-xs">Toroquibee, NSW, Australia 2146</p>
+                    <p className="text-gray-400 text-xs">Krishna District, Nagayalanka 521120</p>
                   </div>
                 </li>
                 <li className="flex items-start">
