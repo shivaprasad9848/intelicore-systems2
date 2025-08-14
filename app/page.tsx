@@ -13,17 +13,14 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
 
-
 const easeOut: Easing = 'easeOut';
 const easeInOut: Easing = 'easeInOut';
-
 
 // Animation variants for text elements (reusable)
 const textVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
 };
-
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -33,12 +30,10 @@ const staggerContainer = {
   },
 };
 
-
 const listVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
 };
-
 
 // AI Project Overview Component (enhanced with more dynamic animations)
 const AIProjectOverview: React.FC = () => {
@@ -47,7 +42,6 @@ const AIProjectOverview: React.FC = () => {
       {/* Glow effects */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-300/30 blur-[150px] -z-10" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-yellow-300/30 blur-[150px] -z-10" />
-
 
       {/* Decorative diamonds with subtle animations */}
       <motion.div
@@ -76,8 +70,7 @@ const AIProjectOverview: React.FC = () => {
         transition={{ duration: 2, repeat: Infinity, ease: easeInOut }}
       />
 
-
-      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-0">
+      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-0 pt-24">
         {/* Left content */}
         <motion.div
           className="flex-1 z-10"
@@ -94,7 +87,7 @@ const AIProjectOverview: React.FC = () => {
           >
             <span className="text-3xl mr-3">🤖</span>
             <motion.h1
-              className="text-2xl md:text-3xl font-bold text-gray-900"
+              className="text-2xl md:text-3xl font-bold text-gray-900 "
               variants={textVariants}
               initial="hidden"
               animate="visible"
@@ -102,7 +95,6 @@ const AIProjectOverview: React.FC = () => {
               Introducing InteliCore: the first AI Agent.
             </motion.h1>
           </motion.div>
-
 
           <div className="space-y-6">
             {/* Gradient text */}
@@ -115,7 +107,6 @@ const AIProjectOverview: React.FC = () => {
               Welcome to InteliCore Systems
             </motion.h2>
 
-
             <motion.p
               initial="hidden"
               animate="visible"
@@ -124,7 +115,6 @@ const AIProjectOverview: React.FC = () => {
             >
               Innovate with AI, Cybersecurity, and Cloud Solutions
             </motion.p>
-
 
             <motion.p
               initial="hidden"
@@ -137,7 +127,6 @@ const AIProjectOverview: React.FC = () => {
               resume in minutes, bypass ATS filters, and accelerate your growth
               with project-based training — all under one roof.
             </motion.p>
-
 
             <motion.div
               className="flex flex-wrap gap-4 mt-8 w-full"
@@ -165,7 +154,6 @@ const AIProjectOverview: React.FC = () => {
           </div>
         </motion.div>
 
-
         {/* Right robot with slow entrance animation from top right */}
         <motion.div
           className="flex-1 flex justify-center relative md:-ml-32 lg:-ml-40 xl:-ml-48"
@@ -192,7 +180,6 @@ const AIProjectOverview: React.FC = () => {
   );
 };
 
-
 // Card Component (added dynamic hover state for more interactivity)
 interface CardProps {
   title: string;
@@ -201,21 +188,19 @@ interface CardProps {
   hoverImage: string;
 }
 
-
 const Card: React.FC<CardProps> = ({ title, svgIcon, description, hoverImage }) => {
   const [animationState, setAnimationState] = useState<'idle' | 'animating' | 'complete'>('idle');
 
-
   return (
     <motion.div
-      className="bg-white rounded-3xl shadow-lg overflow-hidden w-96 h-[520px] cursor-pointer dark:bg-gray-800 dark:text-white hover:shadow-xl transition-shadow flex flex-col"
+      className="bg-white rounded-3xl shadow-lg overflow-hidden w-96 h-[520px] cursor-pointer hover:shadow-xl transition-shadow flex flex-col"
       onHoverStart={() => setAnimationState('animating')}
       onHoverEnd={() => setAnimationState('idle')}
       whileHover={{ scale: 1.05 }} // Added dynamic scale on hover for more dynamism
       transition={{ duration: 0.3 }}
     >
       {/* Top Rounded Section */}
-      <div className="bg-gray-50 dark:bg-gray-700 rounded-t-3xl w-full flex flex-col items-center pt-6 pb-4">
+      <div className="bg-gray-50 rounded-t-3xl w-full flex flex-col items-center pt-6 pb-4">
         <div className="w-16 h-16 text-orange-500">{svgIcon}</div>
         <motion.h3
           className="text-xl font-semibold mt-2"
@@ -228,11 +213,10 @@ const Card: React.FC<CardProps> = ({ title, svgIcon, description, hoverImage }) 
         </motion.h3>
       </div>
 
-
       {/* Description & Arrow/Image Reveal */}
       <div className="p-6 text-center flex-1 flex flex-col">
         <motion.div
-          className="text-gray-600 dark:text-gray-300 mb-6 flex-1"
+          className="text-gray-600 mb-6 flex-1"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -254,13 +238,12 @@ const Card: React.FC<CardProps> = ({ title, svgIcon, description, hoverImage }) 
           )}
         </motion.div>
 
-
         {/* Rounded Box Container */}
-        <div className="relative w-full h-16 rounded-3xl border border-gray-300 dark:border-gray-600 overflow-hidden mt-auto">
+        <div className="relative w-full h-16 rounded-3xl border border-gray-300 overflow-hidden mt-auto">
           {/* Moving Arrow */}
           {animationState !== 'complete' && (
             <motion.div
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300"
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-100 border border-gray-300 flex items-center justify-center text-gray-600"
               animate={{
                 x: animationState === 'animating' ? 'calc(100% - 60px)' : 0,
               }}
@@ -273,7 +256,6 @@ const Card: React.FC<CardProps> = ({ title, svgIcon, description, hoverImage }) 
               <FiArrowRight />
             </motion.div>
           )}
-
 
           {/* Image Reveal */}
           {animationState === 'complete' && (
@@ -298,20 +280,18 @@ const Card: React.FC<CardProps> = ({ title, svgIcon, description, hoverImage }) 
   );
 };
 
-
 // CTA Button Component (added dynamic hover animation)
 interface CTAButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   secondary?: boolean;
   children: React.ReactNode;
 }
 
-
 const CTAButton: React.FC<CTAButtonProps> = ({ secondary, children, ...props }) => (
   // @ts-expect-error Ignoring type mismatch between motion.button and ButtonHTMLAttributes for now
   <motion.button
     className={`relative px-6 py-3 rounded-lg font-semibold text-base transition-all shadow-lg group ${
       secondary
-        ? 'bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-white'
+        ? 'bg-gray-200 hover:bg-gray-300 text-gray-800'
         : 'bg-gradient-to-r from-orange-500 to-orange-700 text-white hover:from-orange-600 hover:to-orange-800'
     }`}
     whileHover={{ scale: 1.05 }}
@@ -323,8 +303,6 @@ const CTAButton: React.FC<CTAButtonProps> = ({ secondary, children, ...props }) 
   </motion.button>
 );
 
-
-// Services Section (enhanced with staggered animations)
 // Services Section (enhanced with staggered animations)
 const Services = () => {
   const services = [
@@ -374,11 +352,11 @@ const Services = () => {
   ];
 
   return (
-    <section className="w-full bg-gradient-to-b from-white to-gray-50 dark:from-[#111927] dark:to-[#050a15] px-4 py-16 flex items-center justify-center">
+    <section className="w-full bg-white px-4 py-16 flex items-center justify-center">
       <div className="max-w-6xl mx-auto w-full">
         <div className="text-center mb-12">
           <motion.h2
-            className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-3"
+            className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3"
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
@@ -388,7 +366,7 @@ const Services = () => {
           </motion.h2>
           <div className="w-16 h-1 mx-auto bg-gradient-to-r from-blue-500 to-orange-500 rounded-lg mb-4" />
           <motion.p
-            className="text-lg text-gray-600 dark:text-gray-300"
+            className="text-lg text-gray-600"
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
@@ -398,7 +376,6 @@ const Services = () => {
           </motion.p>
         </div>
 
-        {/* Increased gap from gap-20 to gap-24 (or you can use any value like gap-32 for even more spacing) */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 justify-center"
           variants={staggerContainer}
@@ -431,6 +408,7 @@ const Services = () => {
     </section>
   );
 };
+
 // Why Choose Us Section (enhanced with more animations)
 const WhyChooseUs = () => {
   const features = [
@@ -457,7 +435,6 @@ const WhyChooseUs = () => {
     },
   ];
 
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -466,15 +443,13 @@ const WhyChooseUs = () => {
     },
   };
 
-
   const childVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeOut } },
   };
 
-
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white">
       <motion.h1
         className="text-3xl font-bold text-center mb-6 relative pb-2"
         variants={textVariants}
@@ -486,7 +461,7 @@ const WhyChooseUs = () => {
         <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-orange-400 rounded-full"></span>
       </motion.h1>
       <motion.p
-        className="text-center text-gray-600 dark:text-gray-300 mb-12"
+        className="text-center text-gray-600 mb-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -506,7 +481,6 @@ const WhyChooseUs = () => {
         </motion.span>
       </motion.p>
 
-
       <div className="flex flex-col lg:flex-row gap-12 items-center">
         {/* Left side cards */}
         <motion.div
@@ -519,7 +493,7 @@ const WhyChooseUs = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 dark:bg-gray-800 dark:text-white"
+              className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -534,13 +508,13 @@ const WhyChooseUs = () => {
                 </div>
                 <div>
                   <motion.h2
-                    className="text-xl font-semibold mb-2 dark:text-white"
+                    className="text-xl font-semibold mb-2"
                     variants={textVariants}
                   >
                     {feature.title}
                   </motion.h2>
                   <motion.p
-                    className="text-gray-600 dark:text-gray-300"
+                    className="text-gray-600"
                     variants={textVariants}
                   >
                     {feature.description}
@@ -550,7 +524,6 @@ const WhyChooseUs = () => {
             </motion.div>
           ))}
         </motion.div>
-
 
         {/* Right side image */}
         <motion.div
@@ -576,11 +549,9 @@ const WhyChooseUs = () => {
   );
 };
 
-
-// ComingSoonImageStyle component (added Framer Motion to text for dynamism)
 // ComingSoonImageStyle component (added Framer Motion to text for dynamism)
 const ComingSoonImageStyle = () => (
-  <section className="w-full min-h-[300px] flex items-stretch">
+  <section className="w-full min-h-[300px] flex items-stretch bg-white">
     {/* Left: Coming Soon message - angled background */}
     <div
       className="flex-1 flex flex-col justify-center pl-12 pr-5 py-12 relative bg-[#253A4E] text-left"
@@ -645,7 +616,6 @@ const ComingSoonImageStyle = () => (
   </section>
 );
 
-// Footer (added Framer Motion to all text elements)
 // Footer (added Framer Motion to all text elements)
 const Footer = () => (
   <footer className="bg-[#253A4E] text-white pt-10 pb-6 relative">
@@ -826,11 +796,10 @@ const Footer = () => (
   </footer>
 );
 
-
 // Home Page Component
 const HomePage: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-[#050a15]">
+    <div className="bg-white">
       <AIProjectOverview />
       <Services />
       <ComingSoonImageStyle />
@@ -839,6 +808,5 @@ const HomePage: React.FC = () => {
     </div>
   );
 };
-
 
 export default HomePage;
