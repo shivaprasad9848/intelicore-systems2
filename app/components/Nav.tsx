@@ -34,17 +34,17 @@ const Nav = () => {
       <nav
         className={`
           fixed top-0 left-0 w-full z-50 transition-all duration-500
-          ${scrolled ? "bg-white/90 shadow-md py-1.5" : "bg-orange-100 py-2"}
+          ${scrolled ? "bg-white/90 shadow-md py-1.5" : "bg-white py-2"}
         `}
         style={{
           backdropFilter: scrolled ? "saturate(180%) blur(10px)" : "none",
           WebkitBackdropFilter: scrolled ? "saturate(180%) blur(10px)" : "none",
         }}
       >
-        <div className="max-w-5xl mx-auto flex items-center justify-between px-4 md:px-8 transition-all duration-300">
-          {/* Logo */}
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-            <Link href="/" className="block py-1 mr-2" style={{ lineHeight: 0 }}>
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 transition-all duration-300">
+          {/* Logo - Far Left */}
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex-1">
+            <Link href="/" className="block py-1" style={{ lineHeight: 0 }}>
               <Image
                 src="/images/logo.png"
                 alt="IteliCore Logo"
@@ -57,23 +57,25 @@ const Nav = () => {
             </Link>
           </motion.div>
 
-          {/* Desktop Nav Links */}
-          <ul className="hidden md:flex gap-6 lg:gap-8 text-[15px] font-semibold tracking-wide uppercase text-black">
-            {NAV_LINKS.map((link) => (
-              <li key={link.name} className="relative group">
-                <Link
-                  href={link.path}
-                  className="transition-all duration-300 group-hover:text-orange-600 group-hover:scale-105"
-                >
-                  {link.name}
-                  <span className="block h-[2px] bg-orange-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left mt-1"></span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* Desktop Nav Links - Centered with increased gap */}
+          <div className="hidden md:flex flex-1 justify-center">
+            <ul className="flex gap-10 xl:gap-12 text-[15px] font-semibold tracking-wide uppercase text-black">
+              {NAV_LINKS.map((link) => (
+                <li key={link.name} className="relative group">
+                  <Link
+                    href={link.path}
+                    className="transition-all duration-300 group-hover:text-orange-600 group-hover:scale-105"
+                  >
+                    {link.name}
+                    <span className="block h-[2px] bg-orange-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left mt-1"></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Desktop Right Section: Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Desktop Right Section: Buttons - Far Right */}
+          <div className="hidden md:flex flex-1 justify-end items-center gap-10">
             <Link
               href="/signin"
               className="text-black text-sm font-semibold hover:text-orange-600 transition-all"

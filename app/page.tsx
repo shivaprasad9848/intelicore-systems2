@@ -43,7 +43,7 @@ const listVariants = {
 // AI Project Overview Component (enhanced with more dynamic animations)
 const AIProjectOverview: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-orange-50 to-orange-100 overflow-hidden px-6">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-white via-orange-50 to-orange-100 overflow-hidden px-6">
       {/* Glow effects */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-300/30 blur-[150px] -z-10" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-yellow-300/30 blur-[150px] -z-10" />
@@ -110,7 +110,7 @@ const AIProjectOverview: React.FC = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-pink-500 via-orange-500 to-blue-500 bg-clip-text text-transparent leading-tight"
+              className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-orange-500 to-[#253A4E] bg-clip-text text-transparent leading-tight"
             >
               Welcome to InteliCore Systems
             </motion.h2>
@@ -180,9 +180,9 @@ const AIProjectOverview: React.FC = () => {
             <Image
               src="/images/robot-orange.png"
               alt="AI Robot representing InteliCore innovation"
-              width={1400}
+              width={1500}
               height={1400}
-              className="drop-shadow-[0_0_50px_rgba(255,165,0,0.5)]"
+              className="drop-shadow-[0_0_50px_rgba(255,165,0,0.5)] pl-16 min-h-[560px] min-w-[150%] pt-25"
               priority
             />
           </motion.div>
@@ -325,6 +325,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({ secondary, children, ...props }) 
 
 
 // Services Section (enhanced with staggered animations)
+// Services Section (enhanced with staggered animations)
 const Services = () => {
   const services = [
     {
@@ -372,9 +373,8 @@ const Services = () => {
     },
   ];
 
-
   return (
-    <section className="w-full bg-gradient-to-b from-white to-gray-50 dark:from-[#111927] dark:to-[#050a15] px-4 py-16 flex items-center justify-center ">
+    <section className="w-full bg-gradient-to-b from-white to-gray-50 dark:from-[#111927] dark:to-[#050a15] px-4 py-16 flex items-center justify-center">
       <div className="max-w-6xl mx-auto w-full">
         <div className="text-center mb-12">
           <motion.h2
@@ -398,9 +398,9 @@ const Services = () => {
           </motion.p>
         </div>
 
-
+        {/* Increased gap from gap-20 to gap-24 (or you can use any value like gap-32 for even more spacing) */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 justify-center"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 justify-center"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -418,7 +418,6 @@ const Services = () => {
           ))}
         </motion.div>
 
-
         <motion.div
           className="mt-12 text-center"
           variants={textVariants}
@@ -432,8 +431,6 @@ const Services = () => {
     </section>
   );
 };
-
-
 // Why Choose Us Section (enhanced with more animations)
 const WhyChooseUs = () => {
   const features = [
@@ -581,11 +578,12 @@ const WhyChooseUs = () => {
 
 
 // ComingSoonImageStyle component (added Framer Motion to text for dynamism)
+// ComingSoonImageStyle component (added Framer Motion to text for dynamism)
 const ComingSoonImageStyle = () => (
   <section className="w-full min-h-[300px] flex items-stretch">
     {/* Left: Coming Soon message - angled background */}
     <div
-      className="flex-1 flex flex-col justify-center pl-12 pr-5 py-12 relative bg-[#20201e] text-left"
+      className="flex-1 flex flex-col justify-center pl-12 pr-5 py-12 relative bg-[#253A4E] text-left"
       style={{
         clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
       }}
@@ -597,7 +595,7 @@ const ComingSoonImageStyle = () => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        COMING <span className="text-red-700">SOON</span>
+        COMING <span className="text-orange-500">SOON</span>
       </motion.h1>
       <motion.p
         className="text-gray-300 text-base"
@@ -619,24 +617,24 @@ const ComingSoonImageStyle = () => (
       }}
     >
       <motion.h2
-        className="text-lg font-bold text-[#20201e] mb-3 tracking-wider"
+        className="text-lg font-bold text-[#253A4E] mb-3 tracking-wider"
         variants={textVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        STAY TUNED.<span className="text-red-700">SIGN UP NOW</span>
+        STAY TUNED.<span className="text-orange-500">SIGN UP NOW</span>
       </motion.h2>
       <form className="flex mt-1">
         <input
-          className="px-4 py-2 border border-gray-400 outline-none text-[#20201e] bg-[#f7f7f6] w-56"
+          className="px-4 py-2 border border-gray-400 outline-none text-[#253A4E] bg-[#f7f7f6] w-56"
           type="email"
           placeholder="Enter your email"
           aria-label="Enter your email"
         />
         <button
           type="submit"
-          className="px-5 py-2 ml-[-2px] bg-[#a11e1e] text-white font-semibold hover:bg-[#861b1b] transition"
+          className="px-5 py-2 ml-[-2px] bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7"/>
@@ -647,16 +645,16 @@ const ComingSoonImageStyle = () => (
   </section>
 );
 
-
+// Footer (added Framer Motion to all text elements)
 // Footer (added Framer Motion to all text elements)
 const Footer = () => (
-  <footer className="bg-gray-950 text-white pt-10 pb-6 relative">
+  <footer className="bg-[#253A4E] text-white pt-10 pb-6 relative">
     <div className="max-w-7xl mx-auto px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Company Info */}
         <div>
           <motion.h2
-            className="text-xl font-bold mb-3"
+            className="text-xl font-bold mb-3 text-white"
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
@@ -665,7 +663,7 @@ const Footer = () => (
             InteliCore Systems
           </motion.h2>
           <motion.p
-            className="text-gray-400 text-sm mb-4"
+            className="text-gray-200 text-sm mb-4"
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
@@ -675,11 +673,10 @@ const Footer = () => (
           </motion.p>
         </div>
 
-
         {/* Quick Links */}
         <div>
           <motion.h3
-            className="text-base font-semibold mb-3 border-b border-orange-500 pb-1 inline-block"
+            className="text-base font-semibold mb-3 border-b border-orange-500 pb-1 inline-block text-white"
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
@@ -696,8 +693,8 @@ const Footer = () => (
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-all duration-300 text-sm flex items-center">
-                  <span className="w-1 h-1 bg-orange-500 rounded-full mr-2"></span>
+                <a href="#" className="text-gray-200 hover:text-orange-400 transition-all duration-300 text-sm flex items-center">
+                  <span className="w-1 h-1 bg-orange-400 rounded-full mr-2"></span>
                   {item}
                 </a>
               </motion.li>
@@ -705,11 +702,10 @@ const Footer = () => (
           </ul>
         </div>
 
-
         {/* Our Services */}
         <div>
           <motion.h3
-            className="text-base font-semibold mb-3 border-b border-orange-500 pb-1 inline-block"
+            className="text-base font-semibold mb-3 border-b border-orange-500 pb-1 inline-block text-white"
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
@@ -726,8 +722,8 @@ const Footer = () => (
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-all duration-300 text-sm flex items-center">
-                  <span className="w-1 h-1 bg-orange-500 rounded-full mr-2"></span>
+                <a href="#" className="text-gray-200 hover:text-orange-400 transition-all duration-300 text-sm flex items-center">
+                  <span className="w-1 h-1 bg-orange-400 rounded-full mr-2"></span>
                   {service}
                 </a>
               </motion.li>
@@ -735,11 +731,10 @@ const Footer = () => (
           </ul>
         </div>
 
-
         {/* Contact Us */}
         <div>
           <motion.h3
-            className="text-base font-semibold mb-3 border-b border-orange-500 pb-1 inline-block"
+            className="text-base font-semibold mb-3 border-b border-orange-500 pb-1 inline-block text-white"
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
@@ -755,8 +750,8 @@ const Footer = () => (
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <FaEnvelope className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
-              <a href="mailto:info@intelicoreai.com" className="text-gray-400 hover:text-orange-500 transition-all duration-300 text-sm">
+              <FaEnvelope className="text-orange-400 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <a href="mailto:info@intelicoreai.com" className="text-gray-200 hover:text-orange-400 transition-all duration-300 text-sm">
                 info@intelicoreai.com
               </a>
             </motion.li>
@@ -767,8 +762,8 @@ const Footer = () => (
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <FaPhone className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
-              <span className="text-gray-400 text-sm">+91 8050383631</span>
+              <FaPhone className="text-orange-400 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <span className="text-gray-200 text-sm">+91 8050383631</span>
             </motion.li>
             <motion.li
               className="flex items-start"
@@ -777,11 +772,11 @@ const Footer = () => (
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <FaMapMarkerAlt className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <FaMapMarkerAlt className="text-orange-400 mt-0.5 mr-2 text-sm flex-shrink-0" />
               <div>
-                <p className="text-gray-400 font-medium text-xs">USA:</p>
-                <p className="text-gray-400 text-xs">5001 Finley Drive, Suite 500,</p>
-                <p className="text-gray-400 text-xs">Irving, TX 75038</p>
+                <p className="text-gray-200 font-medium text-xs">USA:</p>
+                <p className="text-gray-200 text-xs">5001 Finley Drive, Suite 500,</p>
+                <p className="text-gray-200 text-xs">Irving, TX 75038</p>
               </div>
             </motion.li>
             <motion.li
@@ -791,11 +786,11 @@ const Footer = () => (
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <FaMapMarkerAlt className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <FaMapMarkerAlt className="text-orange-400 mt-0.5 mr-2 text-sm flex-shrink-0" />
               <div>
-                <p className="text-gray-400 font-medium text-xs">India:</p>
-                <p className="text-gray-400 text-xs">One City, Block B, 3rd Floor,</p>
-                <p className="text-gray-400 text-xs">Krishna District, Nagayalanka 521120</p>
+                <p className="text-gray-200 font-medium text-xs">India:</p>
+                <p className="text-gray-200 text-xs">One City, Block B, 3rd Floor,</p>
+                <p className="text-gray-200 text-xs">Krishna District, Nagayalanka 521120</p>
               </div>
             </motion.li>
             <motion.li
@@ -805,21 +800,20 @@ const Footer = () => (
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <FaClock className="text-orange-500 mt-0.5 mr-2 text-sm flex-shrink-0" />
+              <FaClock className="text-orange-400 mt-0.5 mr-2 text-sm flex-shrink-0" />
               <div>
-                <p className="text-gray-400 text-xs">Business Hours: Mon-Fri, 9 AM - 7 PM IST</p>
-                <p className="text-gray-400 text-xs">(Currently: {new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: 'numeric', minute: 'numeric', hour12: true })} IST, Open)</p>
+                <p className="text-gray-200 text-xs">Business Hours: Mon-Fri, 9 AM - 7 PM IST</p>
+                <p className="text-gray-200 text-xs">(Currently: {new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: 'numeric', minute: 'numeric', hour12: true })} IST, Open)</p>
               </div>
             </motion.li>
           </ul>
         </div>
       </div>
 
-
       {/* Copyright */}
-      <div className="mt-10 pt-6 border-t border-gray-800 text-center">
+      <div className="mt-10 pt-6 border-t border-gray-600 text-center">
         <motion.p
-          className="text-gray-500 text-xs"
+          className="text-gray-300 text-xs"
           variants={textVariants}
           initial="hidden"
           whileInView="visible"
