@@ -87,7 +87,7 @@ const AIProjectOverview: React.FC = () => {
           >
             <span className="text-3xl mr-3">🤖</span>
             <motion.h1
-              className="text-2xl md:text-3xl font-bold text-gray-900 "
+              className="text-2xl md:text-3xl font-bold text-gray-900"
               variants={textVariants}
               initial="hidden"
               animate="visible"
@@ -461,7 +461,7 @@ const WhyChooseUs = () => {
         <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-orange-400 rounded-full"></span>
       </motion.h1>
       <motion.p
-        className="text-center text-gray-600 mb-12"
+        className="text-center text-gray-900 mb-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
