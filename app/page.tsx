@@ -154,27 +154,17 @@ const AIProjectOverview: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Right robot with slow entrance animation from top right */}
-        <motion.div
-          className="flex-1 flex justify-center relative md:-ml-32 lg:-ml-40 xl:-ml-48"
-          initial={{ x: "100%", y: "-100%", opacity: 0 }}
-          animate={{ x: 0, y: 0, opacity: 1 }}
-          transition={{ duration: 2.5, ease: easeOut }}
-        >
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: easeInOut }}
-          >
-            <Image
-              src="/images/robot-orange.png"
-              alt="AI Robot representing InteliCore innovation"
-              width={1500}
-              height={1400}
-              className="drop-shadow-[0_0_50px_rgba(255,165,0,0.5)] pl-16 min-h-[560px] min-w-[150%] pt-25"
-              priority
-            />
-          </motion.div>
-        </motion.div>
+        {/* Right robot - removed motion effects */}
+        <div className="flex-1 flex justify-center relative md:-ml-32 lg:-ml-40 xl:-ml-48">
+          <Image
+            src="/images/robot-orange.png"
+            alt="AI Robot representing InteliCore innovation"
+            width={1500}
+            height={1400}
+            className="drop-shadow-[0_0_50px_rgba(255,165,0,0.5)] pl-16 min-h-[560px] min-w-[150%] pt-25"
+            priority
+          />
+        </div>
       </div>
     </section>
   );
