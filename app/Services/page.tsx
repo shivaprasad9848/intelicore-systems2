@@ -11,7 +11,6 @@ import {
   FaEnvelope,
   FaClock,
   FaMapMarkerAlt,
-  FaGlobe,
 } from "react-icons/fa";
 import {
   SiMongodb,
@@ -53,15 +52,16 @@ const BusinessCard = ({
 }: BusinessCardProps) => {
   return (
     <motion.div 
-      className={`flex flex-col md:flex-row w-full max-w-3xl rounded-2xl overflow-hidden bg-white border border-gray-100 ${reverse ? 'md:flex-row-reverse' : ''} hover:shadow-xl transition-shadow duration-300 hover:scale-105 transform transition-all duration-500`}
+      className={`flex flex-col md:flex-row w-full max-w-3xl rounded-2xl overflow-hidden bg-white border border-gray-100 ${reverse ? 'md:flex-row-reverse' : ''} hover:shadow-xl transition-all duration-500 hover:scale-105`}
       whileHover={{ y: -5 }}
     >
       {/* Photo side */}
-      <div className="w-full md:w-2/5 bg-gray-100 flex items-center justify-center">
-        <img
+      <div className="w-full md:w-2/5 bg-gray-100 flex items-center justify-center relative h-64 md:h-auto">
+        <Image
           src={imageSrc}
           alt={imageAlt}
-          className="w-full h-64 md:h-full object-cover transition-transform duration-500 hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-500 hover:scale-110"
         />
       </div>
       {/* Info side */}
@@ -144,7 +144,7 @@ const BusinessCard = ({
   );
 };
 
-// Animation Variants (added more professional variants)
+// Animation Variants
 const fadeInLeft: Variants = {
   hidden: { opacity: 0, x: -100 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -160,18 +160,7 @@ const scaleUp: Variants = {
   visible: { scale: 1, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const floating: Variants = {
-  floating: {
-    y: [0, -15, 0],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
-
-// Main Component with enhancements: better responsiveness, smoother animations, refined typography, and added parallax-like effects
+// Main Component
 const ServicesPage: React.FC = () => {
   const imagePaths = {
     hero: "/images/hero.png",
@@ -207,33 +196,6 @@ const ServicesPage: React.FC = () => {
       </svg>
     ),
   };
-
-  const services = [
-    {
-      icon: serviceIcons.robot,
-      title: "AI and Automation Development",
-      image: imagePaths.ai,
-      content:
-        "Build smart applications with AI-driven insights and automated workflows. Our AI solutions transform data into actionable insights and automate complex processes to enhance efficiency and decision-making.",
-      reverse: false,
-    },
-    {
-      icon: serviceIcons.shield,
-      title: "Cybersecurity Solutions",
-      image: imagePaths.cybersecurity,
-      content:
-        "Protect your apps and data with secure APIs, encryption, and threat detection. Our comprehensive security solutions safeguard your digital assets against evolving threats.",
-      reverse: true,
-    },
-    {
-      icon: serviceIcons.cloud,
-      title: "Cloud Computing Services",
-      image: imagePaths.cloud,
-      content:
-        "Develop scalable, cloud-based platforms for global accessibility. Our cloud solutions provide the flexibility, scalability, and reliability your business needs to grow.",
-      reverse: false,
-    },
-  ];
 
   const trainingPrograms = [
     {
@@ -323,16 +285,17 @@ const ServicesPage: React.FC = () => {
       initial="hidden"
       animate="visible"
     >
-      {/* Enhanced Hero Section with parallax effect removed */}
+      {/* Enhanced Hero Section */}
       <div className="bg-gray-100 rounded-2xl flex flex-col md:flex-row font-sans overflow-hidden pt-[100px] md:pt-[135px] relative">
-        <div 
-          className="relative flex w-full md:w-1/2 flex-col rounded-tl-2xl rounded-bl-2xl bg-[#efefef]"
-        >
-          <img
-            src="images/your-team-image.jpg"
-            alt="Three business professionals collaborating around a table"
-            className="mx-4 md:mx-8 rounded-xl object-cover h-[400px] md:h-[500px] transition-transform duration-500"
-          />
+        <div className="relative flex w-full md:w-1/2 flex-col rounded-tl-2xl rounded-bl-2xl bg-[#efefef]">
+          <div className="mx-4 md:mx-8 rounded-xl relative h-[400px] md:h-[500px]">
+            <Image
+              src="/images/your-team-image.jpg"
+              alt="Three business professionals collaborating around a table"
+              fill
+              className="object-cover transition-transform duration-500"
+            />
+          </div>
           <div className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none z-10">
             <svg viewBox="0 0 500 250" className="absolute left-0 bottom-[-30px] w-[300px] h-[200px]">
               <polygon points="0,250 500,250 0,0" fill="#F87C29"/>
@@ -380,7 +343,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Business Cards Section - Enhanced with better spacing and responsiveness */}
+      {/* Business Cards Section */}
       <section className="max-w-7xl mx-auto py-20 px-4 space-y-16 relative">
         <div className="absolute -top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-50 to-orange-50 rounded-full filter blur-3xl opacity-20 -z-10"></div>
         
@@ -477,7 +440,7 @@ const ServicesPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Training Programs Section - Enhanced with better grid and hover effects */}
+      {/* Training Programs Section */}
       <motion.section 
         className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden"
         variants={fadeInUp}
@@ -539,8 +502,7 @@ const ServicesPage: React.FC = () => {
                   <Image
                     src={program.image}
                     alt={program.title}
-                    width={400}
-                    height={300}
+                    fill
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent transition-opacity duration-300 group-hover:opacity-80"></div>
@@ -580,7 +542,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* Technologies Section - Enhanced with staggered animations and better card design */}
+      {/* Technologies Section */}
       <section className="py-20 bg-white relative">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
           <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-full filter blur-3xl opacity-20"></div>
@@ -658,7 +620,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section - Enhanced with gradient button and smoother hover */}
+      {/* CTA Section */}
       <motion.section 
         className="py-16 text-center bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden"
         variants={fadeInUp}
@@ -688,7 +650,7 @@ const ServicesPage: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            Let's discuss how our solutions can help you achieve your goals
+            Let&apos;s discuss how our solutions can help you achieve your goals
           </motion.p>
           
           <motion.div 
@@ -706,7 +668,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* Footer - Enhanced with social icons and better layout */}
+      {/* Footer */}
       <footer className="bg-gray-950 text-white pt-10 pb-6 relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
