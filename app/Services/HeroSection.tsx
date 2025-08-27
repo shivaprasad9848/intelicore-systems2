@@ -6,7 +6,14 @@ import Image from "next/image";
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -100 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  visible: { 
+    opacity: 1, 
+    x: 0, 
+    transition: { 
+      duration: 0.8, 
+      ease: "easeOut" 
+    } 
+  },
 };
 
 const HeroSection = () => {
@@ -32,35 +39,71 @@ const HeroSection = () => {
         <div className="flex flex-col flex-1 justify-center items-start pt-6 md:pt-10">
           <motion.h1 
             className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-yellow-500 inline-block"
-            variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                transition: { 
+                  duration: 0.8, 
+                  ease: "easeOut" 
+                } 
+              }
+            }}
           >
             Our Core Services & Technologies
           </motion.h1>
           <motion.h2 
             className="text-xl md:text-2xl font-semibold mb-2 text-gray-900"
-            variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                transition: { 
+                  duration: 0.8, 
+                  ease: "easeOut",
+                  delay: 0.2
+                } 
+              }
+            }}
           >
-            Comprehensive solutions powered by cutting-edge technologies
+            Innovative solutions built on next-generation technologies
           </motion.h2>
           <motion.p 
             className="text-base md:text-lg mb-6 text-gray-700"
-            variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                transition: { 
+                  duration: 0.8, 
+                  ease: "easeOut",
+                  delay: 0.4
+                } 
+              }
+            }}
           >
-            We deliver tailored services leveraging modern tech stacks to drive your business forward
+            At Intelicore Systems, we offer customized services designed to meet your unique business needs, leveraging advanced tech stacks to accelerate growth, enhance efficiency, and keep you ahead in the digital era.
           </motion.p>
           <motion.a 
             href="/discover" 
             className="bg-orange-500 text-white font-medium px-6 py-3 rounded-3xl hover:bg-yellow-600 mb-10 transition-all duration-300 shadow-md hover:shadow-lg"
             whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
             Discover More →
           </motion.a>

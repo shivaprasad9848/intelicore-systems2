@@ -14,7 +14,7 @@ const OurStorySection = () => {
       </div>
       <div className="absolute top-0 right-0 w-1/3 h-full">
         <svg viewBox="0 0 500 800" className="w-full h-full text-gray-100" preserveAspectRatio="none">
-          <path d="M500,100 C350,200 300,50 0,300 L0,00 L500,0 Z" fill="currentColor" opacity="0.2" />
+          <path d="M500,100 C350,200 300,50 0,300 L0,00 L500,0 Z极" fill="currentColor" opacity="0.2" />
         </svg>
       </div>
 
@@ -54,9 +54,7 @@ const OurStorySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Founded in 2025, InteliCore Systems Private Limited is a dynamic startup dedicated to innovation.
-              Our passionate team of experts leverages AI, cybersecurity, and cloud computing to craft software
-              solutions that solve real-world challenges.
+              Founded in 2025, InteliCore Systems Private Limited is a visionary startup driven by innovation. Our passionate team of experts specializes in AI, cybersecurity, and cloud computing, building intelligent solutions that address real-world challenges.
             </motion.p>
             <motion.p 
               className="text-lg mb-8"
@@ -64,9 +62,7 @@ const OurStorySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              We believe in the power of technology to transform businesses and enhance lives.
-              With our cutting-edge solutions, we&apos;re helping organizations navigate the digital
-              landscape with confidence and security.
+              We believe in the power of technology to shape the future—transforming careers, empowering businesses, and improving lives. Through our cutting-edge solutions, we help organizations thrive in the digital era with confidence, efficiency, and security.
             </motion.p>
             <motion.button 
               className="bg-orange-400 hover:bg-orange-300 text-white font-bold px-8 py-3 rounded-lg transition-colors duration-300"

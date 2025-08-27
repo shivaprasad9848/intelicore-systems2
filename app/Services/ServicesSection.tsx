@@ -22,37 +22,37 @@ const ServicesSection = () => {
     {
       image: "/images/full-stack-web-dev.jpg",
       title: "Full-Stack Web Development",
-      description: "HTML, CSS, Tailwind CSS, React JS",
+      description: "Master the skills to build modern, responsive web applications from scratch. Our program covers HTML, CSS, Tailwind CSS, and React.js, preparing you to create professional-grade projects and launch a successful career in web development.",
       path: "/training/full-stack",
     },
     {
       image: "/images/backend-dev.jpg",
       title: "Backend Development",
-      description: "JavaScript, Python, MongoDB",
+      description: "Learn to build powerful, scalable backend systems using JavaScript, Python, and MongoDB. Gain hands-on experience in APIs, databases, and server-side logic to power real-world applications.",
       path: "/training/backend",
     },
     {
       image: "/images/ai-knowledge.jpg",
-      title: "AI Knowledge",
-      description: "NLP/ML, Generative AI",
+      title: "AI & Machine Learning",
+      description: "Dive into the future of technology with NLP, Machine Learning, and Generative AI. Develop intelligent solutions and prepare for in-demand roles in AI-driven industries.",
       path: "/training/ai",
     },
     {
       image: "/images/data-science.jpg",
       title: "Data Science",
-      description: "Spark, Airflow, dbl, SQL",
+      description: "Master data-driven decision-making with Apache Spark, Airflow, DBL, and SQL. Learn to analyze, visualize, and interpret complex data to solve real-world business problems.",
       path: "/training/data-science",
     },
     {
       image: "/images/sdet-devops.jpg",
-      title: "SDT & DevOps",
-      description: "Jenkins, Docker, GitLab CI/CD",
+      title: "Software Development & DevOps (SDT & DevOps)",
+      description: "Combine coding and deployment expertise. Gain skills in Jenkins, Docker, and GitLab CI/CD to build, test, and deliver applications faster and more efficiently.",
       path: "/training/devops",
     },
     {
       image: "/images/cybersecurity.jpg",
       title: "Cybersecurity",
-      description: "HTML, CSS, TypeScript, React JS",
+      description: "Protect digital assets and ensure system integrity. Learn essential security practices, vulnerability testing, and secure coding techniques to defend against modern cyber threats.",
       path: "/training/cybersecurity",
     },
   ];
@@ -60,42 +60,42 @@ const ServicesSection = () => {
   const technologies = [
     {
       name: "React",
-      description: "Modern UI development with the most popular frontend library",
+      description: "Build modern, dynamic user interfaces with the most popular frontend library in the industry.",
       icon: FaReact,
     },
     {
       name: "Python",
-      description: "Versatile language for backend, AI, and data analytics applications",
+      description: "A versatile programming language powering backend systems, AI, and data-driven applications.",
       icon: FaPython,
     },
     {
       name: "Git",
-      description: "Version control for collaborative development and code management",
+      description: "Industry-standard version control for seamless collaboration and efficient code management.",
       icon: FaGitAlt,
     },
     {
       name: "MongoDB",
-      description: "Flexible NoSQL database for modern applications",
+      description: "A flexible NoSQL database designed for high-performance, modern applications.",
       icon: SiMongodb,
     },
     {
       name: "Tailwind CSS",
-      description: "Utility-first CSS framework for rapid UI development",
+      description: "A utility-first CSS framework enabling rapid, responsive, and consistent UI development.",
       icon: SiTailwindcss,
     },
     {
       name: "TypeScript",
-      description: "Typed JavaScript for more reliable and maintainable code",
+      description: "Enhance JavaScript with type safety for more robust and maintainable applications.",
       icon: SiTypescript,
     },
     {
       name: "Azure",
-      description: "Microsoft's cloud platform for enterprise-grade solutions",
+      description: "Leverage Microsoft's cloud platform for secure, scalable, and enterprise-ready solutions.",
       icon: FaMicrosoft,
     },
     {
       name: "Unreal Engine",
-      description: "Advanced 3D engine for immersive simulations and visualizations",
+      description: "Create advanced 3D environments for immersive training, simulations, and visual experiences.",
       icon: SiUnrealengine,
     },
   ];
@@ -119,16 +119,16 @@ const ServicesSection = () => {
             Project-Oriented Career Training
           </motion.h2>
           <motion.p 
-            className="text-orange-500 mt-4 text-lg"
+            className="text-lg text-gray-700 mt-4 max-w-3xl mx-auto"
             variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            Beyond our core offerings, we provide specialized services
+            Go beyond theory—gain hands-on experience. At Intelicore Systems, we offer practical, project-based training programs that help students and professionals develop real-world skills and build a portfolio that stands out to employers.
           </motion.p>
           <motion.p 
-            className="text-orange-500 mt-2 font-bold text-xl"
+            className="text-orange-500 mt-4 font-bold text-xl"
             variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"

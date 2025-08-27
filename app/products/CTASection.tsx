@@ -27,10 +27,10 @@ const CTASection = () => {
         className="max-w-2xl mx-auto relative z-10"
       >
         <h3 className="text-2xl md:text-3xl font-bold mb-4">
-          Coming Soon: A Game-Changing AI Career Coach Virtual Interviewer
+          Coming Soon: AI Career Coach & Virtual Interviewer
         </h3>
         <p className="mb-6 text-sm md:text-base">
-          Stay tuned for our upcoming AI career solution, set to transform professional growth in 2025. Join our waitlist to be the first to experience it!
+          Get ready for our next breakthrough—an AI-powered career coach designed to help you practice, improve, and excel in interviews. Launching in 2025, this solution will transform how professionals prepare for their careers.
         </p>
         <motion.form
           initial={{ opacity: 0, y: 20 }}

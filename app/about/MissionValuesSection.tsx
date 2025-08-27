@@ -29,9 +29,7 @@ const MissionValuesSection = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            At InteliCore Systems, we&apos;re on a mission to deliver secure, scalable, and intelligent
-            technology for businesses and individuals. Our work is guided by core values that
-            define who we are.
+            At InteliCore Systems, our mission is clear—to deliver secure, scalable, and intelligent technology that empowers businesses, individuals, and communities to succeed in the digital era.
           </motion.p>
         </motion.div>
 
@@ -79,7 +77,7 @@ const MissionValuesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
               >
-                Deliver secure, scalable, and intelligent technology for businesses and individuals.
+                Deliver secure, scalable, and intelligent technology that empowers businesses, individuals, and communities to succeed in the digital era.
               </motion.p>
               
               <motion.h3 
@@ -96,7 +94,7 @@ const MissionValuesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.3 }}
               >
-                Cutting-edge app and web development with a focus on user experience.
+                We specialize in creating advanced applications and web solutions designed for exceptional user experiences—backed by a professional, passionate team dedicated to your success.
               </motion.p>
               
               <motion.button 
@@ -105,7 +103,7 @@ const MissionValuesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.4 }}
               >
-                Learn More
+                Discover How We Can Elevate Your Digital Journey
               </motion.button>
               <motion.p 
                 className="text-xs text-gray-400 mt-4"
@@ -151,34 +149,43 @@ const MissionValuesSection = () => {
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
                 >
-                  High-quality solutions backed by innovation and trust.
+                  High-quality solutions, innovation at the core, and a commitment to helping you thrive in today's competitive landscape.
                 </motion.p>
-                <motion.p 
-                  className="text-white text-sm mb-8"
+                
+                <motion.h3 
+                  className="text-3xl font-light lowercase mb-4 text-white mt-8"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.2 }}
                 >
-                  Discover how we can elevate your digital journey
+                  our values
+                </motion.h3>
+                <motion.p 
+                  className="text-white text-sm mb-4"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.3 }}
+                >
+                  Our approach is guided by core values that define who we are and how we work:
                 </motion.p>
                 <motion.ul 
                   className="text-white text-sm space-y-2"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 0.3 }}
+                  transition={{ duration: 0.3, delay: 0.4 }}
                 >
                   {[
-                    "Innovation through cutting-edge technology",
-                    "Integrity in all our solutions",
-                    "Excellence in execution",
-                    "Client-centric approach",
-                    "Sustainable digital transformation"
+                    "Innovation – Driving progress through cutting-edge technologies.",
+                    "Integrity – Building trust with transparent and ethical practices.",
+                    "Excellence – Committing to the highest standards in every solution.",
+                    "Client-Centric Approach – Focusing on delivering real value and impact.",
+                    "Sustainability – Enabling long-term, responsible digital transformation."
                   ].map((item, index) => (
                     <motion.li
                       key={index}
                       initial={{ opacity: 0, x: 10 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                      transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
                     >
                       • {item}
                     </motion.li>

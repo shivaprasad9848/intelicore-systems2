@@ -50,7 +50,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             Building Tomorrow&apos;s <br />
-            <span className="text-orange-600">Technology Today</span>
+            <span className="text-orange-600">Technology, Today</span>
           </motion.h1>
           
           <motion.p 
@@ -59,9 +59,7 @@ const HeroSection = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Founded in 2025, Intelicore Systems Private Limited is a dynamic startup dedicated to innovation.
-            Our passionate team of experts leverages AI, cybersecurity, and cloud computing to craft software
-            solutions that solve real-world challenges.
+            Founded in 2025, Intelicore Systems Private Limited is a forward-thinking startup committed to innovation. Our expert team harnesses the power of AI, cybersecurity, and cloud computing to create intelligent, secure, and scalable solutions that address real-world challenges and drive future success.
           </motion.p>
           
           <motion.button 

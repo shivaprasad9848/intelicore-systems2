@@ -13,7 +13,7 @@ const CTASection = () => {
     <section className="py-16 text-center bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-r from-orange-100 to-red-100 rounded-full filter blur-3xl opacity-20"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-full filter blur-3xl opacity-20"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80极g-gradient-to-r from-yellow-100 to-orange-100 rounded-full filter blur-3xl opacity-20"></div>
       </div>
       
       <div className="max-w-3xl mx-auto px-4 relative z-10">
@@ -24,22 +24,22 @@ const CTASection = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          Ready to Transform Your Business?
+          Ready to Transform Your Career?
         </motion.h2>
         <motion.p 
-          className="text-xl text-gray-700 mb-10 max-w-2xl mx-auto"
+          className="text-xl text-gray-700 mb-6 max-w-2xl mx-auto"
           variants={fadeInLeft}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          Let's discuss how our solutions can help you achieve your goals
+          Take the next step toward success. Whether you're a student building skills, a job seeker preparing for opportunities, or an employer seeking top talent, Intelicore Systems has the solutions to help you achieve your goals.
         </motion.p>
         
         <motion.div 
           whileHover={{ scale: 1.1 }} 
           whileTap={{ scale: 0.95 }}
-          className="inline-block"
+          className="inline-block mt-6"
         >
           <a
             href="/contact"

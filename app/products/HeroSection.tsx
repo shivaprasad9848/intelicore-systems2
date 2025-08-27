@@ -42,7 +42,7 @@ const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-gray-600"
           >
-            At InteliCore Systems Private Limited, we&apos;re developing cutting-edge AI solutions to simplify career growth and business processes.
+            At InteliCore Systems Private Limited, we design advanced AI solutions that empower individuals and organizations. From streamlining hiring processes to accelerating career growth, our AI-driven tools are built to make recruitment smarter, learning easier, and business operations more efficient.
           </motion.p>
           
           <motion.div
@@ -83,7 +83,7 @@ const HeroSection = () => {
               className="space-y-1"
             >
               <p className="text-2xl font-bold text-gray-900">~20k</p>
-              <p className="text-sm text-gray-500">Daily users</p>
+              <p className="text-sm极 text-gray-500">Daily users</p>
             </motion.div>
             <motion.div 
               whileHover={{ y: -5 }}
@@ -101,7 +101,7 @@ const HeroSection = () => {
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69极3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.极7-3.292z" />
                   </motion.svg>
                 ))}
               </div>
